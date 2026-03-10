@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hospital Management System | Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- LEFT PANEL -->
+    <div class="left-panel">
+        <h1>CityCare Multispeciality Hospital</h1>
+        <p>Secure hospital management platform</p>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div class="right-panel">
+        <div class="card">
+            <h2>Login</h2>
+
+            <label>Email</label>
+            <input id="email" type="email" placeholder="Enter email">
+
+            <label>Password</label>
+            <input id="password" type="password" placeholder="Enter password">
+
+            <button onclick="login()">Login Securely</button>
+
+            <p id="msg" style="margin-top:15px;color:red;text-align:center;"></p>
+
+            <div class="footer-text">
+                New patient?
+                <a class="link" href="signup.html">Create an account</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script type="module">
+import { auth, db } from "./firebase.js";
+import { signInWithEmailAndPassword }
+    from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { doc, getDoc }
+    from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+window.login = async function () {
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const msg = document.getElementById("msg");
+
+    msg.style.color = "red";
+    msg.innerText = "";
+
+    if (!email || !password) {
+        msg.innerText = "Please enter email and password";
+        return;
+    }
+
+    try {
+        // 🔐 Authenticate user
+        const userCred = await signInWithEmailAndPassword(auth, email, password);
+        const uid = userCred.user.uid;
+
+        // 🔍 Get user role from Firestore
+        const snap = await getDoc(doc(db, "users", uid));
+
+        if (!snap.exists()) {
+            msg.innerText = "User data not found in database.";
+            return;
+        }
+
+        const role = snap.data().role;
+
+        // 🔁 Role Based Redirect
+        if (role === "admin") {
+
+            // Admin Dashboard (Dash running on 8060)
+            window.location.href = "http://127.0.0.1:8060/?uid=" + uid;
+
+        } else if (role === "patient") {
+
+            // Patient Dashboard (Dash running on 8051)
+            window.location.href = "http://127.0.0.1:8051/?uid=" + uid;
+
+        } else {
+            msg.innerText = "Invalid role assigned.";
+        }
+
+    } catch (error) {
+        msg.innerText = error.message;
+    }
+};
+</script>
+
+</body>
+</html>

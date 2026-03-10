@@ -1,0 +1,14 @@
+{
+  "type": "service_account",
+  "project_id": "hospitalwalletsystem",
+  "private_key_id": "2eb9c1e2ae45f76d44f771c51b9fb9b64fe25f83",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCYO5U5LWgs7i2e\nECdkXfTCdfg5fIa+wYI2P8kL5WRHFaaYFTyeUkQAJGwmfovpiFDAmev5I9gpUHj4\nwviY2xf6PNiMiH5iXpbRoVrct/jUdOl++d/NYJTo32wj3mrOjcTl0hDY/FMjziWo\nvSvX1Z2w8j5DKinC2KEq+YBN2c8zYJv0NlXMx4lhHKSsHykJENXITvDJKD0omPFG\ndwAs7CJ+YFQlrhmS5/5d1Dq+ZJEpIlqd514qK1xn6oKkfxGeLyVA80fR0+8K8d2J\n4XJJH5c8BjfhplLifmRD1HnpZOdRJIp3DlnFBgKNPlSHzyhsxJDFshMgQEMK6dze\n0Frm3qL9AgMBAAECggEAB+D0OP3XHurYHzlHI07TjJRDcQziAmcMdgH4xe4CMcWh\nQMy/PZMUuYx+W8L/5b8W2Cj/M/6SwOyic37PvprUPltoz7kpZVjvkFDmsswDYPze\nBXgpiOe/PTWBqMeURTVuzoAqkWMEazLPndCQlNPq8eNPrUqLgm3oxXXH71TfADx4\nJ/IWTEPR0+o1/8iqmJXq5ViCJK19Cs4Pm7eu0tpMtzv5r2LEhTRUI8U1gI89NjY8\nKNRq+TepeWzAxF85Asdnmju4vVVLNNzEUSIGqtxKqKFDDKxuI3m/mxVp+JCl8Bef\nFpMlEOAoAJzeS3HSn/SSWXgqA/qXoYpzCSAlhPVE4QKBgQDNUyGymUYI4AncH0Wo\nz7COpr6C6sqC61u9n6hbUS7DBAmN9IzoE+/UalGHXoJKleDENA/IKqcq0uVdhhVj\nW6ItMgc1gG/Wkp5U8s+xLv2dHeNP9YlhPPe1+7YuyqTV7feIRDiKlxjITgeN66LC\nCb+3ySOOcOC3UzXzFKu6hqtAEQKBgQC9zfuS6OCBhJrvWE5lbIWwnP+0tqGGiqTW\nB0sJc6mUpdLS+GagDpXYAKrSCPfkOM2Nx3nirvlRKXnD4mxYAQgkJpJiN5Ntodo0\ntO6FuV0fhY5lAKTWyNHCla4u5NbMYn33rhtPwA4xv4tkBzOG8i5S0DbBDfk3zdYP\nYh/MNN5gLQKBgAoOilX/H+kLYDBB792G3rT+AdLTwTuMX5/4E/z1Cv9OUVF8qvIr\nF9Ilqvygam1QzgOOMT+ypyF31vgvuxh0worIKoY6VkACSnMKuZWKIa3yatHdyu7S\nV6e4PoIoNs6rqzYncUWIhRQ6jjArXHt4ksVjurQdX0RbdQcE+ixWsEihAoGAY8H4\nYH1vSgN1Hyjtg1cnaO0LZGK8wKbr/eW1ZZFZ5tvE08dkwOkJjo7DOUMnbtcACm12\nPVMzjJnc+rxtr09ThRSUyXRmUy/HLP6Pgs8rB589eQ5+lLjVrozXEKSL1L5LcLsc\ndaz+iN0gmQFD7sAo4rO2o38BpnfT8x/ikISVAD0CgYEAiOTSkZh1tYDEu22/sAbq\nQ6u1ghuX3lWqvj0dJ7d9s0RoNV3VgBzbPfi62Wu43F+nIrlbC+qj+EAAaYeBvjWk\npfZCHHU2zEJg+oHjZ1LMQUGfO7v9zxU51jSg7qhKSxN3M1IjYSc6Cj36KLr7IFgi\n429vd9JoQ+TZzm1sVK+cA8w=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-fbsvc@hospitalwalletsystem.iam.gserviceaccount.com",
+  "client_id": "102396665587892534927",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40hospitalwalletsystem.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
+

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hospital Management System | Patient Signup</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="left-panel">
+        <h1>Patient Registration</h1>
+        <hr style="margin: 20px 0; opacity: 0.4;">
+        <p>Register to access hospital services and medical records.</p>
+        <ul>
+            <li>Appointments</li>
+            <li>Wallet & Billing</li>
+            <li>Medical History</li>
+            <li>Doctor Communication</li>
+        </ul>
+    </div>
+
+    <div class="right-panel">
+        <div class="card">
+            <h2>Create Patient Account</h2>
+
+            <label>Full Name</label>
+            <input id="name" type="text" required>
+
+            <label>Age</label>
+            <input id="age" type="number" required>
+
+            <label>Contact Number</label>
+            <input id="phone" type="text" required>
+
+            <label>Email Address</label>
+            <input id="email" type="email" required>
+
+            <label>Password</label>
+            <input id="password" type="password" required>
+
+            <button onclick="signup()">Create Account</button>
+
+            <p id="msg" style="margin-top:15px;color:red;text-align:center;"></p>
+
+            <div class="footer-text">
+                Already registered?
+                <a class="link" href="login.html">Login here</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script type="module">
+import { auth, db } from "./firebase.js";
+import { createUserWithEmailAndPassword }
+    from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { doc, setDoc, serverTimestamp }
+    from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+window.signup = async function () {
+
+    const msg = document.getElementById("msg");
+    msg.style.color = "red";
+    msg.innerText = "";
+
+    try {
+        const name = document.getElementById("name").value.trim();
+        const age = document.getElementById("age").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
+
+        if (!name || !age || !phone || !email || !password) {
+            msg.innerText = "All fields are required.";
+            return;
+        }
+
+        // 🔐 Create Authentication User
+        const userCred = await createUserWithEmailAndPassword(auth, email, password);
+        const uid = userCred.user.uid;
+
+        // 🆔 Generate Unique Patient ID
+        const patientId = "P" + Date.now();
+
+        // 👤 Save Patient Profile (ROLE FIXED)
+        await setDoc(doc(db, "users", uid), {
+            name: name,
+            age: Number(age),
+            phone: phone,
+            email: email,
+            role: "patient",        // 🔒 Always patient
+            patient_id: patientId,
+            createdAt: serverTimestamp()
+        });
+
+        // 💰 Create Wallet Document
+        await setDoc(doc(db, "wallets", patientId), {
+            balance: 0,
+            transactions: []
+        });
+
+        msg.style.color = "green";
+        msg.innerText = "Account created successfully! Redirecting to login...";
+
+        setTimeout(() => {
+            window.location.href = "login.html";
+        }, 1500);
+
+    } catch (error) {
+        msg.innerText = error.message;
+    }
+};
+</script>
+
+</body>
+</html>
