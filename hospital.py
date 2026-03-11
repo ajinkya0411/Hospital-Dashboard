@@ -217,7 +217,7 @@ app.clientside_callback(
 
         var options = {{
 
-            "key": "{rzp_test_SPQhDnYPGZQtWo}",
+            "key": "rzp_test_SPQhDnYPGZQtWo",
             "amount": amount * 100,
             "currency": "INR",
             "name": "CityCare Hospital",
@@ -289,4 +289,5 @@ def check_balance(n, patient_id):
 # -------------------- Run --------------------
 if __name__ == "__main__":
     app.run_server(host="0.0.0.0", port=10000)
+
     
